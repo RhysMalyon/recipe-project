@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :reviews
 
-  validates :username, :email, :password, presence: true
+  validates :username, :password, presence: true
+  validates :email, presence: true, format: Devise.email_regexp
 end

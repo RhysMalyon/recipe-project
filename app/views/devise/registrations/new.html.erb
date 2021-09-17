@@ -1,38 +1,29 @@
-<div class="container d-flex justify-content-center">
-  <div class="pt-5">
-    <h2>Sign up</h2>
+<div class="container form-login mb-5">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h2>Sign up</h2>
 
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-      <%= render "devise/shared/error_messages", resource: resource %>
-
-      <div class="field">
-        <%= f.label :username %><br />
-        <%= f.username_field :username, autofocus: true, autocomplete: "username" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-      </div>
-
-      <div class="actions">
-        <%= f.submit "Sign up" %>
-      </div>
-    <% end %>
-
-    <%= render "devise/shared/links" %>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :username,
+                required: true,
+                input_html: { autocomplete: "Username" }%>
+          <%= f.input :email,
+                required: true,
+                input_html: { autocomplete: "email" }%>
+          <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: "btn btn-primary mt-2" %>
+        </div>
+        <%= link_to 'Back', :back %>
+      <% end %>
+    </div>
   </div>
 </div>

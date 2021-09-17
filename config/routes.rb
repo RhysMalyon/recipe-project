@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :users, only: %i[index edit] do
+  resources :users, only: %i[show edit update] do
     resources :recipes, only: %i[new create] # Recipes need to be created by a user.
     resources :reviews, only: %i[index] # To be able to see what reviews the user has created.
   end

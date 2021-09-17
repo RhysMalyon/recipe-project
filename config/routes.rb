@@ -1,7 +1,11 @@
 # Start of the routes
 
 Rails.application.routes.draw do
+  devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  root to: 'pages#home'
+
   resources :users, only: %i[index edit] do
     resources :recipes, only: %i[new create] # Recipes need to be created by a user.
     resources :reviews, only: %i[index] # To be able to see what reviews the user has created.

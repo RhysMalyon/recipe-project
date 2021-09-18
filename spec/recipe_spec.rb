@@ -5,7 +5,7 @@ require_relative '../app/models/recipe'
 RSpec.describe Recipe, type: :model do
   before { @recipe = Recipe.new(name: 'Green eggs and Ham', ingredients: ['eggs', 'ham'], prep_time: 15, instructions: 'Crack the eggs, and put in the ham.', rating: 4) } # We declare an instance @recipe that we can reuse in this series of tests, instead of having to create instances for every test.
 
-  it 'has an author' do
+  it 'has an name' do
     name = @recipe.name
 
     expect(name).to eq('Green eggs and Ham')
@@ -28,4 +28,6 @@ RSpec.describe Recipe, type: :model do
 
     expect(instructions).to eq('Crack the eggs, and put in the ham.')
   end
+
+  it 'has an author'
 end

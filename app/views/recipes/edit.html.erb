@@ -4,7 +4,7 @@
       <div>
         <%= f.input :name, label: 'Name' %>
         <%= f.input :ingredients, as: :array %>
-        <button class="add-ingredients-button">Add additional ingredient</button>
+        <button class="add-ingredients-button">Update ingredients</button>
         <%= f.input :prep_time, label: 'Prep Time' %>
         <%= f.input :instructions, label: 'Instructions' %>
       </div>
@@ -16,18 +16,22 @@
 </div>
 
 <script>
-  (function() {
-    $(document).ready(function() {
-      $('.add-ingredient-button').on('click', this.addIngredientField);
+  function addField() {
+    document.ready(function() {
+      let inputTarget = document.querySelector(".add-ingredients-button");
+      
+      inputTarget.addEventListener('click', addIngredientField);
       return {
-        addIngredientField: function(ev) {
-          var $lastIngredientField;
-          ev.preventDefault();
-          $lastIngredientField = $('input[name="course[ingredients][]"]:last-of-type').clone();
-          $lastIngredientField.val("");
-          return $(".input.course_ingredients").append($lastIngredientField);
+        addIngredientField: function(e) {
+          let lastIngredientField;
+          e.preventDefault();
+          lastIngredientField = ('input[name="recipe[ingredients][]"]:last-of-type').clone();
+          lastIngredientField.val("");
+          return (".input.recipe_ingredients").append($lastIngredientField);
         }
-      };
-    });
-  }).call(this);
+      }
+    })
+  }
+
+  addField();
 </script>

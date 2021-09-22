@@ -3,7 +3,8 @@
     <%= simple_form_for @recipe, url: recipe_path do |f| %>
       <div>
         <%= f.input :name, label: 'Name' %>
-        <%= f.input :ingredients, label: 'Ingredients' %>
+        <%= f.input :ingredients, as: :array %>
+        <button class="add-ingredients-button">Add additional ingredient</button>
         <%= f.input :prep_time, label: 'Prep Time' %>
         <%= f.input :instructions, label: 'Instructions' %>
       </div>
@@ -13,3 +14,20 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  (function() {
+    $(document).ready(function() {
+      $('.add-ingredient-button').on('click', this.addIngredientField);
+      return {
+        addIngredientField: function(ev) {
+          var $lastIngredientField;
+          ev.preventDefault();
+          $lastIngredientField = $('input[name="course[ingredients][]"]:last-of-type').clone();
+          $lastIngredientField.val("");
+          return $(".input.course_ingredients").append($lastIngredientField);
+        }
+      };
+    });
+  }).call(this);
+</script>

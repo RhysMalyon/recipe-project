@@ -8,5 +8,5 @@ class User < ApplicationRecord
   has_many :recipes
   has_many :reviews
 
-  validates :username, :email, :password, presence: true
+  validates :username, :email, presence: true
 end

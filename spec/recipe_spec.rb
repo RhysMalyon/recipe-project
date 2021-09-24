@@ -9,11 +9,11 @@ RSpec.describe Recipe, type: :model do
     expect(recipe.name).to eq('Green eggs and Ham')
   end
 
-  context 'ingredients' do
-    it 'has a list of ingredients' do
-      expect(recipe.ingredients).to eq(%w[eggs ham])
-    end
+  it 'has a list of ingredients' do
+    expect(recipe.ingredients).to eq(%w[eggs ham])
+  end
 
+  context 'ingredients' do
     it 'allows ingredients to be added' do
       expect(recipe.ingredients.push('green stuff')).to eq(['eggs', 'ham', 'green stuff'])
     end

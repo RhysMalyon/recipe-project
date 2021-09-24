@@ -32,8 +32,9 @@ gem 'bootstrap'
 gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
 gem 'font-awesome-sass'
-gem 'simple_form'
 gem 'pundit'
+gem 'rails_admin', '~> 2.0'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

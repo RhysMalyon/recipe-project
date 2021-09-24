@@ -1,0 +1,6 @@
+<div class="container">
+  <% @recipes.each do |recipe| %>
+    <p><%= recipe.name %></p>
+    <p><%= recipe.user.username %></p>
+  <% end %>
+</div>

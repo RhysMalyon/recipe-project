@@ -1,0 +1,11 @@
+<%= simple_form_for @recipe, url: user_recipes_path do |f| %>
+  <div>
+    <%= f.input :name, label: 'Name' %>
+    <%= f.input :ingredients, label: 'Ingredients' %>
+    <%= f.input :prep_time, label: 'Prep Time' %>
+    <%= f.input :instructions, label: 'Instructions' %>
+  </div>
+  <div>
+    <%= f.submit 'Create Recipe', class: 'btn btn-warning' %>
+  </div>
+<% end %>

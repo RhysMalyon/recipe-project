@@ -18,6 +18,13 @@ class RecipePolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user # Only the creator can update the recipe.
+    user == record.user # Only the creator can update the recipe.
   end
+
+  # private
+
+  # def user_is_owner?
+  #   user == record
+  # end
+
 end

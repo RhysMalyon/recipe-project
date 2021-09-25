@@ -16,17 +16,18 @@ User.destroy_all
 
 puts 'DB cleaned'
 
+users = []
 puts 'Creating Rhys'
-User.create!(username: 'Rhys', email: 'rhys@me.com', password: 123456)
+users << User.create!(username: 'Rhys', email: 'rhys@me.com', password: 123456)
 
 puts 'Creating Viddy'
-User.create!(username: 'Viddy', email: 'viddy@me.com', password: 123456)
+users << User.create!(username: 'Viddy', email: 'viddy@me.com', password: 123456)
 
 puts "Now to create recipes."
 10.times do
   ingredient_list = []
   rand(1..5).times do
-    ingredient_list << ingredientsFaker::Food.ingredient
+    ingredient_list << Faker::Food.ingredient
   end
-  Recipe.create!(name: Faker::Food.dish, ingredients: ingredient_list, prep_time: rand(1..90), instructions: "Just cook #{['it', 'the recipe', 'your food', 'the full monty'].sample}", user: User.find(rand(1..2)))
+  Recipe.create!(name: Faker::Food.dish, ingredients: ingredient_list, prep_time: rand(1..90), instructions: "Just cook #{['it', 'the recipe', 'your food', 'the full monty'].sample}", user: users.sample)
 end

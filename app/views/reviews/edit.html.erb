@@ -1,0 +1,13 @@
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <%= simple_form_for @review, url: review_path do |f| %>
+      <div>
+        <%= f.input :content, label: 'Name' %>
+        <%= f.input :rating, label: 'Prep Time' %>
+      </div>
+      <div>
+        <%= f.submit 'Update Review', class: 'btn btn-warning' %>
+      </div>
+    <% end %>
+  </div>
+</div>

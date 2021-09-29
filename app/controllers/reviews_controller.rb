@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
   def update
     @user = current_user
     if @review.update(review_params)
-      redirect_to recipe_path(@recipe), notice: 'Your review has been updated.'
+      redirect_to user_reviews_path(@user), notice: 'Your review has been updated.'
     else
       render :edit
     end

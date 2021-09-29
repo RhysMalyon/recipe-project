@@ -1,6 +1,11 @@
 <div class="container">
-  <% @recipes.each do |recipe| %>
-    <p><%= recipe.name %></p>
-    <p><%= recipe.user.username %></p>
-  <% end %>
+  <div class="container__recipes">
+    <% @recipes.each do |recipe| %>
+      <div class="card__recipe">
+        <%= image_tag "https://loremflickr.com/320/240/#{recipe.name}/", class: "mb-2 card__recipe-image" %>
+        <p><%= link_to recipe.name, recipe_path(recipe) %></p>
+        <p><%= recipe.user.username %></p>
+      </div>
+    <% end %>
+  </div>
 </div>

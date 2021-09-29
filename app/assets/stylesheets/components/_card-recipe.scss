@@ -1,0 +1,11 @@
+.card__recipe {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+  padding: 1rem;
+  width: max-content;
+  margin: 0.5rem;
+
+  .card__recipe-image {
+    border-radius: 0.5rem;
+  }
+}

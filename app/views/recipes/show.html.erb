@@ -1,0 +1,20 @@
+<div class="container">
+  <%= image_tag "https://loremflickr.com/320/240/#{@recipe.name}/", class: "mb-2" %>
+  <div>
+    <% if @recipe.user == current_user %>
+      <p><%= link_to ('<p>Edit recipe <i class="fas fa-edit"></i></p>').html_safe, edit_recipe_path(@recipe) %></p>
+    <% end %>
+  </div>
+  <h1><%= @recipe.name %></h1>
+  <small>Rating: <%= @recipe.rating %>/5</small>
+  <p>Prep time: <%= @recipe.prep_time %> minutes</p>
+  <h2>Ingredients</h2>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= ingredient %></li>
+    <% end %>
+  </ul>
+  <h2>Instructions</h2>
+  <p><%= @recipe.instructions %></p>
+
+</div>

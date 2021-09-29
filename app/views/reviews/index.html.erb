@@ -5,10 +5,11 @@
     <p><%= review.rating %></p>
     <p><%= review.user.username %></p>
     <% if review.user == @user %>
+      <p><%= link_to 'Edit review', edit_review_path(review) %></p>
       <%= link_to ('<i class="fas fa-trash"></i>').html_safe,
                   review_path(review),
                   method: :delete,
                   data: { confirm: "Delete review?"} %>
+      <% end %>
     <% end %>
-  <% end %>
 </div>

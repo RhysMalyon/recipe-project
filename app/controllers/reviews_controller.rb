@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_review, only: %i[destroy]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -38,14 +38,17 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:recipe_id])
     @user = current_user
-    authorize @review
     @review.destroy
-    redirect_to recipe_path(@recipe), notice: 'Your review was successfully removed'
+    redirect_to user_reviews_path(@user), notice: 'Your review was successfully removed'
   end
 
   private
+
+  def set_review
+    @review = Review.find(params[:id])
+    authorize @review
+  end
 
   def review_params
     params.require(:review).permit(:content, :rating)

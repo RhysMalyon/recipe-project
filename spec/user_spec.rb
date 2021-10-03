@@ -11,8 +11,6 @@ RSpec.describe User, type: :model do
 
   it 'has a valid email address' do
     expect(subject.email).to eq('larry@jokeaddress.com')
-    # user.email = 'something else'
-    # expect(user.email).not_to
   end
 
   it 'has a valid password' do

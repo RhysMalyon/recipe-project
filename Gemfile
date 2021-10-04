@@ -30,7 +30,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'bootstrap'
 gem 'cloudinary', '~> 1.16.0'
 gem 'devise'
 gem 'font-awesome-sass'

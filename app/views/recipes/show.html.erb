@@ -17,4 +17,13 @@
   <h2>Instructions</h2>
   <p><%= @recipe.instructions %></p>
 
+  <p><%= link_to "Add a review", new_recipe_review_path(@recipe) %></p>
+  <div class="card__recipe">
+    <% @recipe.reviews.each do |review| %>
+      <h2><%= review.rating %></h2>
+      <p><%= review.content %></p>
+      <small><%= review.user.username %></small>
+    <% end %>
+  </div>
+
 </div>

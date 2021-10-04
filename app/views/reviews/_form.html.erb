@@ -1,0 +1,9 @@
+<%= simple_form_for [@recipe, @review], url: recipe_reviews_path(@recipe) do |f| %>
+  <div>
+    <%= f.input :rating, label: 'Rating' %>
+    <%= f.input :content, label: 'Review' %>
+  </div>
+  <div>
+    <%= f.submit 'Submit Review', class: 'btn btn-warning' %>
+  </div>
+<% end %>

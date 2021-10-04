@@ -17,12 +17,21 @@
   <h2>Instructions</h2>
   <p><%= @recipe.instructions %></p>
 
+  <hr>
+
+  <h2>Reviews</h2>
+
   <p><%= link_to "Add a review", new_recipe_review_path(@recipe) %></p>
-  <div class="card__recipe">
+  <div class="card__review">
     <% @recipe.reviews.each do |review| %>
-      <h2><%= review.rating %></h2>
-      <p><%= review.content %></p>
-      <small><%= review.user.username %></small>
+    <div class="review-header">
+      <p><%= review.user.username %></p>
+    </div>
+    <div class="review-date">
+      <p>(<%= review.created_at.to_formatted_s(:db) %>)</p>
+    </div>
+    <p>Rating: <%= review.rating %>/5</p>
+    <p><%= review.content %></p>
     <% end %>
   </div>
 

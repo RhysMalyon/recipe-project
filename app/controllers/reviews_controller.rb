@@ -10,13 +10,15 @@ class ReviewsController < ApplicationController
   def show; end
 
   def new
-    @recipe = Recipe.new
-    authorize @review
+    @recipe = Recipe.find(params[:recipe_id])
+    @review = Review.new
+    authorize @recipe
   end
 
   def create
-    @recipe = Recipe.find(params[:recipe_id])
     @review = Review.new(review_params)
+    @recipe = Recipe.find(params[:recipe_id])
+    @review.recipe = @recipe
     @review.user = current_user
     authorize @review
     if @review.save

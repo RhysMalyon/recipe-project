@@ -7,7 +7,16 @@ class BookmarksController < ApplicationController
   end
 
   def create
-
+    @bookmark = Bookmark.new(bookmark_params)
+    @recipe = Recipe.find(params[:recipe_id])
+    @bookmark.recipe = @recipe
+    @bookmark.user = current_user
+    authorize @bookmark
+    if @bookmark.save
+      redirect_to(:back), notice: 'Review was successfully bookmarked.'
+    else
+      render :new
+    end
   end
 
   def destroy

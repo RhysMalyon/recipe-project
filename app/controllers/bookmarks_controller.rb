@@ -13,13 +13,15 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     authorize @bookmark
     if @bookmark.save
-      redirect_to(:back), notice: 'Review was successfully bookmarked.'
+      redirect_to :back, notice: 'Review was successfully bookmarked.'
     else
       render :new
     end
   end
 
   def destroy
-
+    @user = current_user
+    @bookmark.destroy
+    redirect_to :back, notice: 'Recipe removed from bookmarks.'
   end
 end

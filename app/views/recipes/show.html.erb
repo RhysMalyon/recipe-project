@@ -4,6 +4,10 @@
     <% if @recipe.user == current_user %>
       <p><%= link_to ('<p>Edit recipe <i class="fas fa-edit"></i></p>').html_safe, edit_recipe_path(@recipe) %></p>
     <% end %>
+    <% if user_signed_in? %>
+      <%= link_to "Add to bookmarks", new_recipe_bookmark_path(@recipe) %>
+    <% end %>
+    <small><%= @recipe.bookmarks.count %> <%= @recipe.bookmarks.count == 1 ? "bookmark" : "bookmarks" %></small>
   </div>
   <h1><%= @recipe.name %></h1>
   <small>Rating: <%= @recipe.rating %>/5</small>
